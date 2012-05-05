@@ -68,12 +68,12 @@ class ReSample
     
     $this->_saveImage();
     
-    return $this->_filename . image_type_to_extension($this->_type);
+    return $this->_filename . $this->_getExtension($this->_type);
   }
   
   public function getImageInfo(){
     return array(
-      'path'    => $this->_filename . image_type_to_extension($this->_type),
+      'path'    => $this->_filename . $this->_getExtension($this->_type),
       'width'   => $this->_width,
       'height'  => $this->_height,
       'type'    => $this->_type,
@@ -107,7 +107,7 @@ class ReSample
   }
   
   /** @method fit
-   * Proportionally scale the to longest side within the given dimensions */
+   * Proportionally scale to the longest side within the given dimensions */
   public function fit($width, $height){
     
     $srcRatio = $this->_width / $this->_height;
@@ -243,7 +243,7 @@ class ReSample
   }
   
   private function _createImage($width, $height, $sourceDims, $destDims){
-    // TODO: fix transparency flattening of semi-transparent areas on background in jpg mode
+    // TODO: transparency flattening of semi-transparent areas on background in jpg mode
     
     // create new image
     $newImage = imagecreatetruecolor($width, $height);
@@ -275,8 +275,15 @@ class ReSample
   private function _saveImage(){
     // TODO: error handling if write failed
     switch($this->_type){
-      case IMAGETYPE_JPEG:  imagejpeg($this->_resource, $this->_filename . image_type_to_extension(IMAGETYPE_JPEG), 85); break;
-      default:              imagepng($this->_resource, $this->_filename . image_type_to_extension(IMAGETYPE_PNG)); break;
+      case IMAGETYPE_JPEG:  imagejpeg($this->_resource, $this->_filename . $this->_getExtension(IMAGETYPE_JPEG), 85); break;
+      default:              imagepng($this->_resource, $this->_filename . $this->_getExtension(IMAGETYPE_PNG)); break;
+    }
+  }
+  
+  private function _getExtension($type){
+    switch($type){
+      case IMAGETYPE_JPEG: return '.jpg'; break;
+      default: return image_type_to_extension($type);
     }
   }
 }
