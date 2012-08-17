@@ -27,7 +27,9 @@ class ReSample
   }
   
   public function __destruct(){
-    imagedestroy($this->_resource);
+    if (is_resource($this->_resource)) {
+      imagedestroy($this->_resource);
+    }
   }
   
   public function setImage($resource, $versionName){
