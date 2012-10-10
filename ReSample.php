@@ -184,12 +184,13 @@ class ReSample
   }
   
   /** @method crop
-   * Crop the given dimensions from center 
+   * Crop the given dimensions
+   * if no offset coordinates are given, cropping will occur from center
    */
   public function crop($width, $height, $x = false, $y = false){
     $sourceDims = array(
-      'x'       => (!$x ? $x : $this->_width / 2 - $width / 2 ),
-      'y'       => (!$y ? $y : $this->_height / 2 - $height / 2),
+      'x'       => ($x ? $x : $this->_width / 2 - $width / 2 ),
+      'y'       => ($y ? $y : $this->_height / 2 - $height / 2),
       'width'   => $width,
       'height'  => $height
     );
