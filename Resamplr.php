@@ -2,15 +2,15 @@
 /**
  * Create a resampled version of an image with diffent modes of changing its dimensions
  * 
- * @Author Markus J Doetsch
+ * @Author Markus J Doetsch mdular.com
  * 
  * @Example 
- * $newImage = new ReSample();
+ * $newImage = new Resamplr();
  * $newImage->setImage(PATH_TO_IMAGE, NAME_SUFFIX);
  * $newImage->fit(WIDTH, HEIGHT);
  * echo $newImage->getImage();
  */
-class ReSample 
+class Resamplr 
 {
   protected $_resource;
   protected $_width;
