@@ -1,14 +1,7 @@
-ReSample.php
+resamplr
 ============
 
 Lightweight class to resize image files in multiple ways
-
-I'm not exactly a PHP specialist, but when looking for something like this i had trouble 
-finding a graceful solution and ImageMagick is often times too big or unavailable.
-
-So i had a go at at myself ;)
-
-Suggestions and improvements - or even links that would obsolete this are welcome.
 
 Quickstart: 
 Point your webserver to the project folder and run the example script.
