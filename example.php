@@ -17,8 +17,8 @@ if(!empty($_FILES['imagefile']) && !empty($_POST['submit'])){
      */
      
     // 1. make sure the class is loaded, then create an instance
-    require_once 'ReSample.php';
-    $newImage = new ReSample();
+    require_once 'Resamplr.php';
+    $newImage = new Resamplr();
     
     // 2. set the uploaded file and a version name
     $newImage->setImage($uploadedImage, 'thumb');
