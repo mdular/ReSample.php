@@ -1,0 +1,8 @@
+{
+    "name": "mdular/resamplr",
+    "description": "Create a resampled version of an image with diffent modes of changing its dimensions",
+    "require": {
+        "php": ">=5.3.0",
+        "ext-gd": "*"
+    }
+}
