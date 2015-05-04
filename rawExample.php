@@ -1,7 +1,7 @@
 <?php 
 
-require_once 'ReSample.php';
-$newImage = new ReSample();
+require_once 'Resamplr.php';
+$newImage = new Resamplr();
 $newImage->setImage('YOUR_IMAGE_FILE', 'thumb'); // NOTE: set image path
 
 $newImage->letterBox(200, 100);
